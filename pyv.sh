@@ -73,12 +73,13 @@ pyv_exec() {
     fi
     $SHELL -c "PATH=$PYENVPATH/bin:$PATH;\
 export VIRTUAL_ENV=$1;\
-if [ -e $PYENVPATH/.project ]; then cd $(head --lines 1 $PYENVPATH/.project); fi;\
 ${@:2}"
 }
 
 pyv_start() {
-    ${1:?'You have to specify a pyenv!'}
+    if [ -z "$1" ]; then
+        echo 'You have to specify a pyenv!'
+    fi
     local PYENVPATH=''
     if [ -d "$1" ]; then
         PYENVPATH="$1"
@@ -90,9 +91,12 @@ pyv_start() {
         echo "Could not find pyenv \"$1\""
         return 1
     fi
+    if [ -e $PYENVPATH/.project ]; then 
+        local PROJECTPATH="$(head --lines 1 $PYENVPATH/.project)"
+    fi
     $SHELL -c "PATH=$PYENVPATH/bin:$PATH;\
 export VIRTUAL_ENV=$1;\
-if [ -e $PYENVPATH/.project ]; then cd $(head --lines 1 $PYENVPATH/.project); fi;\
+if [ -n $PROJECTPATH ]; then cd $PROJECTPATH; fi;\
 $SHELL -i"
 }
 
