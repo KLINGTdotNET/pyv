@@ -1,4 +1,5 @@
-# pyv - a wrapper for virtualenv that doesn't mess around with your shell
+# pyv
+### A wrapper for virtualenv that doesn't mess around with your shell
 
 **pyv** is an alternative to [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/) written in bash. It works like [vex](https://pypi.python.org/pypi/vex) by starting a subshell for your virtual environment. The advantage is, that you *don't* have to *deactivate* your virtual envrionment, instead you only have leave your subshell (`Ctrl+D`) to get back where you left off.
 
