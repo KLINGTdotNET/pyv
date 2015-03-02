@@ -15,7 +15,7 @@ I've tested it with `bash` and `zsh`, but it should work with other shells too.
 - make sure you have `virtualenv` installed, if not: `pip install --user virtualenv`
 - set the `WORKON_HOME` environment variable with the path to the folder where your pyenvs should be stored, g.e. `~/.virtualenvs`
     - instead of `WORKON_HOME` you can set `PYENVS`
-- source the `pyv.sh` in your `bash.rc` or `zsh.rc`
+- source the `pyv.sh` in your `.bashrc` or `.zshrc`
 - done
 
 ## Features
