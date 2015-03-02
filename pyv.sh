@@ -94,9 +94,13 @@ pyv_start() {
     if [ -e $PYENVPATH/.project ]; then 
         local PROJECTPATH="$(head --lines 1 $PYENVPATH/.project)"
     fi
+    if [ -f $PYENVPATH/startup.sh ]; then
+        local STARTUPPATH="$PYENVPATH/startup.sh"
+    fi
     $SHELL -c "PATH=$PYENVPATH/bin:$PATH;\
 export VIRTUAL_ENV=$1;\
 if [ -n $PROJECTPATH ]; then cd $PROJECTPATH; fi;\
+if [ -n $STARTUPPATH ]; then $STARTUPPATH; fi;\
 $SHELL -i"
 }
 
