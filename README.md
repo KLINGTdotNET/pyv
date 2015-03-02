@@ -17,6 +17,10 @@ I've tested it with `bash` and `zsh`, but it should work with other shells too.
 - source the `pyv.sh` in your `bash.rc` or `zsh.rc`
 - done
 
+## Features
+
+- **pyv** supports *virtualenvwrappers* `PROJECT_HOME`, this means `pyv -c foo` will create the project directory `foo` under `$PROJECT_HOME` as well as the *pyenv* `foo`
+
 ## Demo
 
 ![pyv demo](demo.gif)
@@ -28,4 +32,4 @@ recorded with [tty2gif](http://z24.github.io/tty2gif/)
 
 ## todo
 
-- support virtualenvwrappers `PROJECT_HOME` and create `.project` files
+...
