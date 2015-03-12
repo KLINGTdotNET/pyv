@@ -22,6 +22,9 @@ I've tested it with `bash` and `zsh`, but it should work with other shells too.
 
 - **pyv** supports *virtualenvwrappers* `PROJECT_HOME`, this means `pyv -c foo` will create the project directory `foo` under `$PROJECT_HOME` as well as the *pyenv* `foo`
 - **startup hook**: if there is a file called `startup.sh` in your `$WORKON_HOME/pyenv_name` directory, then `pyv` will execute it when you run the *pyenv* `name`
+- pyenv will automatically `cd` into the path that is stated in the first line of a `.project` file in the root of your `pyenv`
+    - *virtualenvwrapper*s `workon` command uses these `.project` files to `cd` into your project dir 
+    - the easiest way to create such a file is to activate a `pyenv` and run: `echo /path/to/projectdir > $PYENVPATH/.project`. The next time you activate the environment you will be automatically `cd`ed into the project dir.
 - you can use `pyv -e name "command1 ..."` to run commands directly in a *pyenv*
     - note that `pyv -e` won't cd in the project directory nor execute the `startup.sh` hook
 
