@@ -111,7 +111,7 @@ pyv() {
     "-c" | "--create")
 # calls virtualenv with the first argument appended to the $PYENVS path as project path
         virtualenv ${@:3} -- "$PYENVS/$2"
-        if [ -n ${PROJECT_HOME+PROJECT_HOME} ]; then
+        if [ -n "${PROJECT_HOME+PROJECT_HOME}" ]; then
             mkdir "$PROJECT_HOME/$2"
             echo "$PROJECT_HOME/$2" > "$PYENVS/$2/.project"
         fi
