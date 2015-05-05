@@ -79,6 +79,8 @@ ${@:2}"
 pyv_start() {
     if [ -z "$1" ]; then
         echo 'You have to specify a pyenv!'
+        pyv_list
+        return
     fi
     local PYENVPATH=''
     if [ -d "$1" ]; then
